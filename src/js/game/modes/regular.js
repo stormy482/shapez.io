@@ -275,23 +275,23 @@ export function generateLevelDefinitions(limitedVersion = false) {
 
         // 8
         {
-            shape: "RbRb----", // painter t2
+            shape: "RgRg----", // painter t2
             required: 480,
             reward: enumHubGoalRewards.reward_mixer,
         },
 
         // 9
-        // Mixing (purple)
+        // Mixing (yellow)
         {
-            shape: "CpCpCpCp", // belts t3
+            shape: "CyCyCyCy", // belts t3
             required: 600,
             reward: enumHubGoalRewards.reward_merger,
         },
 
         // 10
-        // STACKER: Star shape + cyan
+        // STACKER: Star shape + white
         {
-            shape: "ScScScSc", // miners t3
+            shape: "SwSwSwSw", // miners t3
             required: 800,
             reward: enumHubGoalRewards.reward_stacker,
         },
@@ -299,7 +299,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
         // 11
         // Chainable miner
         {
-            shape: "CgScScCg", // processors t3
+            shape: "CrSgSgCr", // processors t3
             required: 1000,
             reward: enumHubGoalRewards.reward_miner_chainable,
         },
@@ -307,7 +307,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
         // 12
         // Blueprints
         {
-            shape: "CbCbCbRb:CwCwCwCw",
+            shape: "CrCrCrRr:CwCwCwCw",
             required: 1000,
             reward: enumHubGoalRewards.reward_blueprints,
         },
@@ -315,7 +315,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
         // 13
         // Tunnel Tier 2
         {
-            shape: "RpRpRpRp:CwCwCwCw", // painting t3
+            shape: "RrRgRgRr:CwCwCwCw", // painting t3
             required: 3800,
             reward: enumHubGoalRewards.reward_underground_belt_tier_2,
         },
