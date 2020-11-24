@@ -130,3 +130,9 @@ For most assets I use Adobe Photoshop, you can find them <a href="//github.com/t
 All assets will be automatically rebuilt into the atlas once changed (Thanks to dengr1065!)
 
 <img src="https://i.imgur.com/W25Fkl0.png" alt="shapez.io Screenshot">
+
+### JusticeForLevel17 Mod
+
+This mod as far as I'm concerned is a new take on the current open source shapez.io modding scene: It's a level mod! The wires update, while positively received, did the outrageous deed of removing WrRgWrRg:CwCrCwCr:SgSgSgSg from the official level set, being indirectly replaced by a shape that is tecnically and aesthetically (hopefully I spelled that right) inferior. So this level mod takes matters into my own hands, as I reintroduce level 17 into it's rightful home at, level 17 (duh), and more, further implementing the shape's color and/or design scheme onto all 26 (and more) levels in the game! The same goes for freeplay and upgrades, where all mixed paint except white and the priomary color blue have been deemed i l l e g a l.
+
+I encourage anyone that enjoys this level mod to contribute and/or make their own branches of this mod, which teaches the virtue of perfect shape design, as well as optimizing white dye belts and stacking methods. If anyone wishes, I may end up making a recolored version of this level system in case you are so overwhelmed by the glory of level 17... but how can I be that silly? level 17 is THE best shape. Being overwhelmed by it seems quite ridiculous!
