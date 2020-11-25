@@ -305,7 +305,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
         },
 
         // 12
-        // Blueprints
+        // REDprints
         {
             shape: "CrCrCrRr:CwCwCwCw",
             required: 1000,
@@ -320,20 +320,12 @@ export function generateLevelDefinitions(limitedVersion = false) {
             reward: enumHubGoalRewards.reward_underground_belt_tier_2,
         },
 
-        // DEMO STOPS HERE
-        ...(limitedVersion
-            ? [
-                  {
-                      shape: "RpRpRpRp:CwCwCwCw",
-                      required: 0,
-                      reward: enumHubGoalRewards.reward_demo_end,
-                  },
-              ]
-            : [
+        // DEMO STOPS HERE-LOL not on my watch
+        
                   // 14
                   // Belt reader
                   {
-                      shape: "--Cg----:--Cr----", // unused
+                      shape: "Cg--CgCg:Cr--CrCr", // unused
                       required: 8, // Per second!
                       reward: enumHubGoalRewards.reward_belt_reader,
                       throughputOnly: true,
@@ -342,7 +334,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 15
                   // Storage
                   {
-                      shape: "SrSrSrSr:CyCyCyCy", // unused
+                      shape: "SgSgSgSg:CwCrCwCr", // unused
                       required: 10000,
                       reward: enumHubGoalRewards.reward_storage,
                   },
@@ -350,7 +342,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 16
                   // Quad Cutter
                   {
-                      shape: "SrSrSrSr:CyCyCyCy:SwSwSwSw", // belts t4 (two variants)
+                      shape: "SgSgSgSg:CwCrCwCr:SgSgSgSg", // belts t4 (two variants)
                       required: 6000,
                       reward: enumHubGoalRewards.reward_cutter_quad,
                   },
@@ -366,7 +358,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 18
                   // Rotater (180deg)
                   {
-                      shape: "CbRbRbCb:CwCwCwCw:WbWbWbWb", // unused
+                      shape: "CrRgRrCg:CwCrCwCr:WgWgWgWg", // unused
                       required: 20000,
                       reward: enumHubGoalRewards.reward_rotater_180,
                   },
@@ -374,7 +366,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 19
                   // Compact splitter
                   {
-                      shape: "CpRpCp--:SwSwSwSw",
+                      shape: "RwCr--Cr:Cg--Cg--",
                       required: 25000,
                       reward: enumHubGoalRewards.reward_splitter,
                   },
@@ -390,7 +382,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 21
                   // Filter
                   {
-                      shape: "CrCwCrCw:CwCrCwCr:CrCwCrCw:CwCrCwCr",
+                      shape: "CrCgCrCg:CwCrCwCr:SgSgSgSg:CwCrCwCr",
                       required: 25000,
                       reward: enumHubGoalRewards.reward_filter,
                   },
@@ -413,14 +405,14 @@ export function generateLevelDefinitions(limitedVersion = false) {
 
                   // 24 Logic gates
                   {
-                      shape: "CcRcCcRc:RwCwRwCw:Sr--Sw--:CyCyCyCy",
+                      shape: "CrRgCrRg:CwCrCwCr:Sg--Sg--:--Cg--Cg",
                       required: 25000,
                       reward: enumHubGoalRewards.reward_logic_gates,
                   },
 
                   // 25 Virtual Processing
                   {
-                      shape: "Rg--Rg--:CwRwCwRw:--Rg--Rg",
+                      shape: "Rr--Rr--:--Rg--Rg:Rw--Rw--",
                       required: 25000,
                       reward: enumHubGoalRewards.reward_virtual_processing,
                   },
@@ -431,7 +423,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                       required: 50000,
                       reward: enumHubGoalRewards.reward_freeplay,
                   },
-              ]),
+              
     ];
 
     if (G_IS_DEV) {
