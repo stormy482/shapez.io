@@ -1,5 +1,5 @@
 export const CHANGELOG = [
-    {
+     /*{
         version: "1.2.1",
         date: "unreleased",
         entries: [
@@ -12,6 +12,15 @@ export const CHANGELOG = [
             "Prevent throughput goals containing fractional numbers (by CEbbinghaus)",
             "Updated translations and added Hungarian",
         ],
+    },*/
+    {
+        version: "0.0.1",
+        date: "December, IDK",
+        entries: [
+            "Changed splash text to Mod Name",
+            "Removed wires update Level 18 and replaced with pre-wires Level 17 respectively",
+            "All levels now reflect partially or wholly the design and color of level 17",
+            "Made cyan, magenta, yelow and blue i l l e g a l in Freeplay (hopefully)",
     },
     {
         version: "1.2.0",
