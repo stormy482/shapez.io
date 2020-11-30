@@ -3,10 +3,10 @@ import { GameMode } from "../game_mode";
 import { ShapeDefinition } from "../shape_definition";
 import { enumHubGoalRewards } from "../tutorial_goals";
 
-const rocketShape = "CbCuCbCu:Sr------:--CrSrCr:CwCwCwCw";
-const finalGameShape = "RuCw--Cw:----Ru--";
+const rocketShape = "Sr------:--CgSrCg:CwCrCwCr:SgSgSgSg";
+const finalGameShape = "RrCw--Cw:----Rr--:SgSgSgSg";
 const preparementShape = "CpRpCp--:SwSwSwSw";
-const blueprintShape = "CbCbCbRb:CwCwCwCw";
+const blueprintShape = "CrCrCrRr:CwCwCwCw";
 
 // Tiers need % of the previous tier as requirement too
 const tierGrowth = 2.5;
@@ -249,6 +249,8 @@ export function generateLevelDefinitions(limitedVersion = false) {
             required: 70,
             reward: enumHubGoalRewards.reward_rotater,
         },
+        
+        //TODO: Make speed challenge after first beta
 
         // 5
         // Rotater
@@ -347,7 +349,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                       reward: enumHubGoalRewards.reward_cutter_quad,
                   },
 
-                  // 17
+                  // 17 BEST SHAPE IN GAME, WOULD RECOMMEND, 11/10 -IGN, probably
                   // Double painter
                   {
                       shape: "WrRgWrRg:CwCrCwCr:SgSgSgSg", // miner t4 (two variants)
@@ -358,7 +360,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 18
                   // Rotater (180deg)
                   {
-                      shape: "CrRgRrCg:CwCrCwCr:WgWgWgWg", // unused
+                      shape: "CrRgRrCg:CwCrCwCr:WgWgWgWg",
                       required: 20000,
                       reward: enumHubGoalRewards.reward_rotater_180,
                   },
@@ -390,15 +392,16 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 22
                   // Constant signal
                   {
-                      shape: "Cg----Cr:Cw----Cw:Sy------:Cy----Cy",
-                      required: 25000,
+                      shape: "Cr----Cg:Cw----Cw:Sg------:Cg------",
+                      required: 8,
                       reward: enumHubGoalRewards.reward_constant_signal,
+                      throughputOnly: true,                 
                   },
 
                   // 23
                   // Display
                   {
-                      shape: "CcSyCcSy:SyCcSyCc:CcSyCcSy",
+                      shape: "CrSgCrSg:SwCrSwCr:CgSgCgSg:CwCrCwCr",
                       required: 25000,
                       reward: enumHubGoalRewards.reward_display,
                   },
