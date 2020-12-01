@@ -21,6 +21,7 @@ export const CHANGELOG = [
             "Removed wires update Level 18 and replaced with pre-wires Level 17 respectively",
             "All levels now reflect partially or wholly the design and color of level 17",
             "Made cyan, magenta, yelow and blue i l l e g a l in Freeplay (hopefully)",
+             ],
     },
     {
         version: "1.2.0",
