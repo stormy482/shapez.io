@@ -15,12 +15,11 @@ export const CHANGELOG = [
     },*/
     {
         version: "0.0.1",
-        date: "December, IDK",
+        date: "12.01.2020",
         entries: [
             "Changed splash text to Mod Name",
             "Removed wires update Level 18 and replaced with pre-wires Level 17 respectively",
             "All levels now reflect partially or wholly the design and color of level 17",
-            "Made cyan, magenta, yelow and blue i l l e g a l in Freeplay (hopefully)",
              ],
     },
     {
