@@ -3,10 +3,12 @@ import { GameMode } from "../game_mode";
 import { ShapeDefinition } from "../shape_definition";
 import { enumHubGoalRewards } from "../tutorial_goals";
 
-const rocketShape = "Sr------:--CgSrCg:CwCrCwCr:SgSgSgSg";
+const rocketShape = "CbCuCbCu:Sr------:--CrSrCr:CwCwCwCw";
 const finalGameShape = "RrCw--Cw:----Rr--:SgSgSgSg";
-const preparementShape = "CpRpCp--:SwSwSwSw";
-const blueprintShape = "CrCrCrRr:CwCwCwCw";
+const bestShape = "WrRgWrRg:CwCrCwCr:SgSgSgSg";
+const preparementShape = /*"CpRpCp--:SwSwSwSw"*/ bestShape;
+const blueprintShape = "CbCbCbRb:CwCwCwCw";
+
 
 // Tiers need % of the previous tier as requirement too
 const tierGrowth = 2.5;
@@ -51,13 +53,13 @@ function generateUpgrades(limitedVersion = false) {
                 required: [{ shape: "--CuCu--", amount: 500 }],
             },
             {
-                required: [{ shape: "CpCpCpCp", amount: 1000 }],
+                required: [{ shape: "CyCyCyCy", amount: 1000 }],
             },
             {
-                required: [{ shape: "SrSrSrSr:CyCyCyCy", amount: 6000 }],
+                required: [{ shape: "SgSgSgSg:CwCrCwCr", amount: 6000 }],
             },
             {
-                required: [{ shape: "SrSrSrSr:CyCyCyCy:SwSwSwSw", amount: 25000 }],
+                required: [{ shape: "SgSgSgSg:CwCrCwCr:SgSgSgSg", amount: 25000 }],
             },
             {
                 required: [{ shape: preparementShape, amount: 25000 }],
@@ -81,13 +83,13 @@ function generateUpgrades(limitedVersion = false) {
                 required: [{ shape: "Cu------", amount: 800 }],
             },
             {
-                required: [{ shape: "ScScScSc", amount: 3500 }],
+                required: [{ shape: "SwSwSwSw", amount: 3500 }],
             },
             {
-                required: [{ shape: "CwCwCwCw:WbWbWbWb", amount: 23000 }],
+                required: [{ shape: "CwCrCwCr:WgWgWgWg", amount: 23000 }],
             },
             {
-                required: [{ shape: "CbRbRbCb:CwCwCwCw:WbWbWbWb", amount: 50000 }],
+                required: [{ shape: "CrRgRrCg:CwCrCwCr:WgWgWgWg", amount: 50000 }],
             },
             {
                 required: [{ shape: preparementShape, amount: 25000 }],
@@ -111,13 +113,13 @@ function generateUpgrades(limitedVersion = false) {
                 required: [{ shape: "RuRu----", amount: 600 }],
             },
             {
-                required: [{ shape: "CgScScCg", amount: 3500 }],
+                required: [{ shape: "CrSgSgCr", amount: 3500 }],
             },
             {
                 required: [{ shape: "CwCrCwCr:SgSgSgSg", amount: 25000 }],
             },
             {
-                required: [{ shape: "WrRgWrRg:CwCrCwCr:SgSgSgSg", amount: 50000 }],
+                required: [{ shape: bestShape, amount: 69420 }],
             },
             {
                 required: [{ shape: preparementShape, amount: 25000 }],
@@ -135,19 +137,19 @@ function generateUpgrades(limitedVersion = false) {
 
         painting: [
             {
-                required: [{ shape: "RbRb----", amount: 600 }],
+                required: [{ shape: "RgRg----", amount: 600 }],
             },
             {
                 required: [{ shape: "WrWrWrWr", amount: 3800 }],
             },
             {
-                required: [{ shape: "RpRpRpRp:CwCwCwCw", amount: 6500 }],
+                required: [{ shape: "RrRgRgRr:CwCwCwCw", amount: 6500 }],
             },
             {
-                required: [{ shape: "WpWpWpWp:CwCwCwCw:WpWpWpWp", amount: 25000 }],
+                required: [{ shape: "WrWgWgWr:CwCwCwCw:WgWrWrWg", amount: 25000 }],
             },
             {
-                required: [{ shape: "WpWpWpWp:CwCwCwCw:WpWpWpWp:CwCwCwCw", amount: 50000 }],
+                required: [{ shape: "WrWgWgWr:CgCwCgCw:CwCrCwCr:WgWrWrWg", amount: 50000 }],
             },
             {
                 required: [{ shape: preparementShape, amount: 25000 }],
@@ -163,7 +165,7 @@ function generateUpgrades(limitedVersion = false) {
             ...generateInfiniteUnlocks(),
         ],
     };
-
+    
     // Automatically generate tier levels
     for (const upgradeId in upgrades) {
         const upgradeTiers = upgrades[upgradeId];
@@ -352,7 +354,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
                   // 17 BEST SHAPE IN GAME, WOULD RECOMMEND, 11/10 -IGN, probably
                   // Double painter
                   {
-                      shape: "WrRgWrRg:CwCrCwCr:SgSgSgSg", // miner t4 (two variants)
+                      shape: bestShape, // miner t4 (two variants)
                       required: 20000,
                       reward: enumHubGoalRewards.reward_painter_double,
                   },
