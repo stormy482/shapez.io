@@ -130,3 +130,13 @@ For most assets I use Adobe Photoshop, you can find them <a href="//github.com/t
 All assets will be automatically rebuilt into the atlas once changed (Thanks to dengr1065!)
 
 <img src="https://i.imgur.com/W25Fkl0.png" alt="shapez.io Screenshot">
+
+###Painter Mod (WIP Project)
+
+This project, which is merely just a clone of my master branch at 12/2/2020, is my (SargeanTraivs) contribution to the mod megacollaboration by prod. This mod will push the boundaries of shapez.io modding and encompasses:
+-several new levels, all of which were completely designed or partially designed from discord-member created shapes found on my <a href="https://discord.gg/tTcUdETdev" target="_blank">shapez.io modding server</a>
+-A new quasi-resource, Water, which boosts the productivity of select painters and other "water-cooled machines"
+-An assortment of pipe buildings, from pumps, to underground/aboveground pipes, to liquid storage tanks, and a assortment of flow control systems such as a flow meter and a liquid valve!
+-Over half a dozen unique painter variants that revolutionize late game factory building, such as the wires-based SMART Painters, the thicc but impressive Double-Quad Painter, and much, much more!
+
+This mod is currently verrry early in its development, so be patient for updates!
