@@ -13,8 +13,19 @@ export const CHANGELOG = [
             "Updated translations and added Hungarian",
         ],
     },*/
-    {
-        version: "0.0.1",
+     {
+       version: "1.2.0.2",
+       date: "12.08.2020",
+       entries:[
+          "Updated previous and current changlog numbers to make it 'vanilla.vanilla.vannilla.mod version'",
+          "Implemented Level 17 themed upgrades",
+          "Removed i l l e g a l dye colors from freeplay shape color pool",
+          "Various refactoring and level tweaks",
+          "If all things go well, I will rebuild this version next week as the official launch version of JusticeForLevel17!",
+          ],
+     },
+     {
+        version: "1.2.0.1",
         date: "12.01.2020",
         entries: [
             "Changed splash text to Mod Name",
