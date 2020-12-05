@@ -354,16 +354,18 @@ export class HubGoals extends BasicSerializableObject {
      * Picks random colors which are close to each other
      * @param {RandomNumberGenerator} rng
      */
+   //TODO: Ensure this is responsible for generating freeplay goal colors
+    
     generateRandomColorSet(rng, allowUncolored = false) {
         const colorWheel = [
             enumColors.red,
-            enumColors.yellow,
+            //enumColors.yellow,
             enumColors.green,
-            enumColors.cyan, 
-            enumColors.blue,
-            enumColors.purple,
+            //enumColors.cyan, 
+           // enumColors.blue,
+           // enumColors.purple,
             enumColors.red,
-            enumColors.yellow,
+           // enumColors.yellow,
         ];
 
         const universalColors = [enumColors.white];
