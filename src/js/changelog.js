@@ -14,7 +14,7 @@ export const CHANGELOG = [
         ],
     },*/
      {
-       version: "1.2.0.2",
+       version: "0.2",
        date: "12.08.2020",
        entries:[
           "Updated previous and current changlog numbers to make it 'vanilla.vanilla.vannilla.mod version'",
@@ -25,7 +25,7 @@ export const CHANGELOG = [
           ],
      },
      {
-        version: "1.2.0.1",
+        version: "0.1",
         date: "12.01.2020",
         entries: [
             "Changed splash text to Mod Name",
