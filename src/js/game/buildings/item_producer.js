@@ -4,7 +4,7 @@ import { ItemProducerComponent } from "../components/item_producer";
 import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
 import { Entity } from "../entity";
 import { MetaBuilding } from "../meta_building";
-
+//TODO: Remove Item Producer functionality
 export class MetaItemProducerBuilding extends MetaBuilding {
     constructor() {
         super("item_producer");
