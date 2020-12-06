@@ -243,13 +243,15 @@ export function generateLevelDefinitions(limitedVersion = false) {
             shape: "RuRuRuRu", // miners t1
             required: 70,
             reward: enumHubGoalRewards.reward_balancer,
+            throughputOnly: true,
         },
 
         // 4
         {
             shape: "RuRu----", // processors t2
-            required: 70,
+            required: 4,
             reward: enumHubGoalRewards.reward_rotater,
+            
         },
         
         //TODO: Make speed challenge after first beta
