@@ -7,7 +7,7 @@ const rocketShape = "CbCuCbCu:Sr------:--CrSrCr:CwCwCwCw";
 const finalGameShape = "RrCw--Cw:----Rr--:SgSgSgSg";
 const bestShape = "WrRgWrRg:CwCrCwCr:SgSgSgSg";
 const preparementShape = /*"CpRpCp--:SwSwSwSw"*/ bestShape;
-const blueprintShape = "CbCbCbRb:CwCwCwCw";
+const blueprintShape = "CrCrCrCr:CwCwCwCw";
 
 
 // Tiers need % of the previous tier as requirement too
