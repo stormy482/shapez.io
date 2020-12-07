@@ -14,10 +14,18 @@ export const CHANGELOG = [
         ],
     },*/
      {
+          version: "0.2.1",
+          date: "12.08.2020",
+          entries:[
+             "Updated previous and current changelog designations to the standard 'major.minor.patch' format",
+             "Fixed bug where redprint shape code wasn't universally applied therefore preventing redprints from being the shape required to blueprint",
+          ];
+     },
+     {
        version: "0.2.0",
        date: "12.08.2020",
        entries:[
-          "Updated previous and current changlog numbers to make it 'vanilla.vanilla.vannilla.mod version'",
+          "Updated previous and current changlog designations to make it 'vanilla.vanilla.vannilla.mod version'",
           "Implemented Level 17 themed upgrades",
           "Removed i l l e g a l dye colors from freeplay shape color pool",
           "Various refactoring and level tweaks",
