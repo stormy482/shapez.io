@@ -1,5 +1,19 @@
 export const CHANGELOG = [
-     /*{
+     /*
+      {
+          version: "1.0.0",
+          date: "12.14.2020",
+          entries:[
+             "Official github.io launch of JusticeForLevel17 Mod!",
+             "Resolved any 0.2.# bugs",
+             "1.2.2 vanilla client commits implemented",
+         ],
+     
+     },
+     
+     
+     
+     {
         version: "1.2.1",
         date: "unreleased",
         entries: [
@@ -19,11 +33,11 @@ export const CHANGELOG = [
           entries:[
              "Updated previous and current changelog designations to the standard 'major.minor.patch' format",
              "Fixed bug where redprint shape code wasn't universally applied therefore preventing redprints from being the shape required to blueprint",
-          ];
+          ],
      },
      {
        version: "0.2.0",
-       date: "12.08.2020",
+       date: "12.07.2020",
        entries:[
           "Updated previous and current changlog designations to make it 'vanilla.vanilla.vannilla.mod version'",
           "Implemented Level 17 themed upgrades",
