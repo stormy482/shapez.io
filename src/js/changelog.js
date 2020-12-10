@@ -1,12 +1,16 @@
 export const CHANGELOG = [
      
       {
-          version: "1.0.0",
+          version: "(17) 1.0.0",
           date: "12.16.2020",
           entries:[
-             "Official github.io launch of JusticeForLevel17 Mod!",
-             "Resolved any 0.2.# bugs",
-             "1.2.2 vanilla client commits implemented",
+             "Official mod release!",
+             "Added (17) prefix to all mod changelogs,
+             "Implemented hotfix for Incorrect Redprint shape code (I swear it's fixed this time!)",
+             "Fixed error where level 26 and the corresponding end game upgrade were the vanilla desing and not the modded variant",
+             "Added new Mod tips,"
+             "Removed dev mode and sandbox tools,"
+             "Relevant 1.2.2 vanilla client commits implemented",
          ],
      
      },
@@ -22,7 +26,7 @@ export const CHANGELOG = [
             "Allow to cycle variants backwards with SHIFT + T",
             "Upgrade numbers now use roman numerals until tier 50 (by LeopoldTal)",
             "Add button to unpin shapes from the left side (by artemisSystem)",
-            "Fix middle mouse button also placing blueprints (by Eiim)",
+            "Fix middle mouse button also placing redprints (by Eiim)",
             "Hide wires grid when using the 'Disable Grid' setting (by EmeraldBlock)",
             "Fix UI using multiple different save icons",
             "Updated translations (Thanks to all contributors!)",
@@ -44,7 +48,7 @@ export const CHANGELOG = [
         ],
     },
      {
-          version: "0.2.1",
+          version: "(17) 0.2.1",
           date: "12.08.2020",
           entries:[
              "Updated previous and current changelog designations to the standard 'major.minor.patch' format",
@@ -52,7 +56,7 @@ export const CHANGELOG = [
           ],
      },
      {
-       version: "0.2.0",
+       version: "(17) 0.2.0",
        date: "12.07.2020",
        entries:[
           "Updated previous and current changlog designations to make it 'vanilla.vanilla.vannilla.mod version'",
@@ -63,7 +67,7 @@ export const CHANGELOG = [
           ],
      },
      {
-        version: "0.1.0",
+        version: "(17) 0.1.0",
         date: "12.01.2020",
         entries: [
             "Changed splash text to Mod Name",
