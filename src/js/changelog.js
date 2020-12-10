@@ -1,8 +1,8 @@
 export const CHANGELOG = [
-     /*
+     
       {
           version: "1.0.0",
-          date: "12.14.2020",
+          date: "12.16.2020",
           entries:[
              "Official github.io launch of JusticeForLevel17 Mod!",
              "Resolved any 0.2.# bugs",
@@ -42,7 +42,7 @@ export const CHANGELOG = [
             "Prevent throughput goals containing fractional numbers (by CEbbinghaus)",
             "Updated translations and added Hungarian",
         ],
-    },*/
+    },
      {
           version: "0.2.1",
           date: "12.08.2020",
