@@ -3,7 +3,7 @@ import { GameMode } from "../game_mode";
 import { ShapeDefinition } from "../shape_definition";
 import { enumHubGoalRewards } from "../tutorial_goals";
 
-const rocketShape = "CbCuCbCu:Sr------:--CrSrCr:CwCwCwCw";
+const rocketShape = "Sr------:--CgSrCg:CwCrCwCr:SgSgSgSg";
 const finalGameShape = "RrCw--Cw:----Rr--:SgSgSgSg";
 const bestShape = "WrRgWrRg:CwCrCwCr:SgSgSgSg";
 const preparementShape = /*"CpRpCp--:SwSwSwSw"*/ bestShape;
@@ -426,7 +426,7 @@ export function generateLevelDefinitions(limitedVersion = false) {
 
                   // 26 Freeplay
                   {
-                      shape: "CbCuCbCu:Sr------:--CrSrCr:CwCwCwCw",
+                      shape: "Sr------:--CgSrCg:CwCrCwCr:SgSgSgSg",
                       required: 50000,
                       reward: enumHubGoalRewards.reward_freeplay,
                   },
