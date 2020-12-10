@@ -57,7 +57,7 @@ export const KEYMAPPINGS = {
         trash: { keyCode: key("0") },
 
         // Sandbox
-        item_producer: { keyCode: key("L") },
+        //item_producer: { keyCode: key("L") },
 
         // Secondary toolbar
         storage: { keyCode: key("Y") },
