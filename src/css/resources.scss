@@ -1,6 +1,6 @@
 $buildings: belt, cutter, miner, mixer, painter, rotater, balancer, stacker, trash, underground_belt, wire,
     constant_signal, logic_gate, lever, filter, wire_tunnel, display, virtual_processor, reader, storage,
-    transistor, analyzer, comparator, item_producer;
+    transistor, analyzer, comparator;
 
 @each $building in $buildings {
     [data-icon="building_icons/#{$building}.png"] {
