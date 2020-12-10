@@ -725,11 +725,6 @@ buildings:
             name: Virtual Painter
             description: Virtually paints the shape from the bottom input with the color on the right input.
 
-    item_producer:
-        default:
-            name: Item Producer
-            description: Available in sandbox mode only, outputs the given signal from the wires layer on the regular layer.
-
 storyRewards:
     # Those are the rewards gained from completing the store
     reward_cutter_and_trash:
@@ -1156,7 +1151,6 @@ keybindings:
         transistor: *transistor
         analyzer: *analyzer
         comparator: *comparator
-        item_producer: Item Producer (Sandbox)
         # ---
 
         pipette: Pipette
@@ -1182,17 +1176,26 @@ keybindings:
         placeInverse: Invert automatic belt orientation
 
 about:
-    title: About this Game
+    title: About this Modded Game
     body: >-
-        This game is open source and developed by <a href="https://github.com/tobspr" target="_blank">Tobias Springer</a> (this is me).<br><br>
+        This game is a modified open source client and the source code was developed by <a href="https://github.com/tobspr" target="_blank">Tobias Springer</a>.<br><br>
 
-        If you want to contribute, check out <a href="<githublink>" target="_blank">shapez.io on GitHub</a>.<br><br>
+        If you want to contribute to his game, check out <a href="<githublink>" target="_blank">shapez.io on GitHub</a>.<br><br>
 
-        This game wouldn't have been possible without the great Discord community around my games - You should really join the <a href="<discordlink>" target="_blank">Discord server</a>!<br><br>
+        This game wouldn't have been possible without the great Discord community around his games - You should really join the <a href="<discordlink>" target="_blank">Discord server</a>!<br><br>
 
         The soundtrack was made by <a href="https://soundcloud.com/pettersumelius" target="_blank">Peppsen</a> - He's awesome.<br><br>
 
-        Finally, huge thanks to my best friend <a href="https://github.com/niklas-dahl" target="_blank">Niklas</a> - Without our Factorio sessions, this game would never have existed.
+        Finally, huge thanks to Tobias' best friend <a href="https://github.com/niklas-dahl" target="_blank">Niklas</a> - Without their Factorio sessions, this game would never have existed.<br><br>
+        
+        JusticeForLevel17 Mod Contributers:<br><br>
+        
+        This Mod was the brainchild and created primarily by Level 17's biggest fan, <a href="https://github.com/SargeanTravis" target="_blank"> SargeanTravis</a><br><br>
+        
+        Special thanks to my shapez.io Modding Server on Discord, without them I couldnt create the most ideal shapes for the mod, especially that darned level 23!<a href="https://discord.gg/YeZaCnSmJG">Click here to check it out!</a>
+        
+        
+        
 
 changelog:
     title: Changelog
@@ -1224,7 +1227,7 @@ tips:
     - The painter has a mirrored variant which you can select with <b>T</b>
     - Having the right building ratios will maximize efficiency.
     - At maximum level, 5 extractors will fill a single belt.
-    - Don't forget about tunnels!
+    - Remember this shape code - WrRgWrRg/CwCrCwCr/SgSgSgSg, you'll thank me later
     - You don't need to divide up items evenly for full efficiency.
     - Holding <b>SHIFT</b> will activate the belt planner, letting you place long lines of belts easily.
     - Cutters always cut vertically, regardless of their orientation.
@@ -1236,7 +1239,7 @@ tips:
     - Shape patches that are further away from the hub are more complex.
     - Machines have a limited speed, divide them up for maximum efficiency.
     - Use balancers to maximize your efficiency.
-    - Organization is important. Try not to cross conveyors too much.
+    - Justice For Level 17!
     - Plan in advance, or it will be a mess!
     - Don't remove your old factories! You'll need them to unlock upgrades.
     - Try beating level 20 or 26 on your own before seeking for help!
@@ -1246,14 +1249,14 @@ tips:
     - Full windmills/pinwheels can never spawn naturally.
     - Color your shapes before cutting for maximum efficiency.
     - With modules, space is merely a perception; a concern for mortal men.
-    - Make a separate blueprint factory. They're important for modules.
+    - Make a separate redprint factory. They're important for modules.
     - Have a closer look at the color mixer, and your questions will be answered.
     - Use <b>CTRL</b> + Click to select an area.
     - Building too close to the hub can get in the way of later projects.
     - The pin icon next to each shape in the upgrade list pins it to the screen.
-    - Mix all three primary colors to make white!
+    - Mix all three primary colors to make white! (You'll need a lot of it, trust me)
     - You have an infinite map. Don't cramp your factory, expand!
-    - Also try Factorio! It's my favorite game.
+    - Also try vanilla shapez.io! It's what the source code for this mod comes from.
     - The quad cutter cuts clockwise, starting from the top right.
     - You can download your savegames in the main menu!
     - This game has a lot of useful keybindings! Be sure to check out the settings page.
