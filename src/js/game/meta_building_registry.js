@@ -10,7 +10,7 @@ import { enumCutterVariants, MetaCutterBuilding } from "./buildings/cutter";
 import { MetaDisplayBuilding } from "./buildings/display";
 import { MetaFilterBuilding } from "./buildings/filter";
 import { MetaHubBuilding } from "./buildings/hub";
-import { MetaItemProducerBuilding } from "./buildings/item_producer";
+//import { MetaItemProducerBuilding } from "./buildings/item_producer";
 import { MetaLeverBuilding } from "./buildings/lever";
 import { enumLogicGateVariants, MetaLogicGateBuilding } from "./buildings/logic_gate";
 import { enumMinerVariants, MetaMinerBuilding } from "./buildings/miner";
@@ -58,7 +58,7 @@ export function initMetaBuildingRegistry() {
     gMetaBuildingRegistry.register(MetaTransistorBuilding);
     gMetaBuildingRegistry.register(MetaAnalyzerBuilding);
     gMetaBuildingRegistry.register(MetaComparatorBuilding);
-    gMetaBuildingRegistry.register(MetaItemProducerBuilding);
+ //   gMetaBuildingRegistry.register(MetaItemProducerBuilding);
 
     // Belt
     registerBuildingVariant(1, MetaBeltBuilding, defaultBuildingVariant, 0);
@@ -163,7 +163,7 @@ export function initMetaBuildingRegistry() {
     registerBuildingVariant(49, MetaReaderBuilding);
 
     // Item producer
-    registerBuildingVariant(61, MetaItemProducerBuilding);
+    //registerBuildingVariant(61, MetaItemProducerBuilding);
 
     // Propagate instances
     for (const key in gBuildingVariants) {
