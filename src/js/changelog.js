@@ -9,7 +9,7 @@ export const CHANGELOG = [
     },
     {
         version: "(17) 1.0.0",
-        date: "12.14.2020",
+        date: "12.17.2020",
         entries: [
             "Official mod release!",
             "Added (17) prefix to all mod changelogs",
