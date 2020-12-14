@@ -1,20 +1,26 @@
 export const CHANGELOG = [
-     
-      {
-          version: "(17) 1.0.0",
-          date: "12.16.2020",
-          entries:[
-             "Official mod release!",
-             "Added (17) prefix to all mod changelogs,
-             "Implemented hotfix for Incorrect Redprint shape code (I swear it's fixed this time!)",
-             "Fixed error where level 26 and the corresponding end game upgrade were the vanilla desing and not the modded variant",
-             "Added new Mod tips,"
-             "Removed dev mode and sandbox tools,"
-             "Relevant 1.2.2 vanilla client commits implemented",
-         ],
-     
-     },
-     {
+    {
+        version: "1.2.3",
+        date: "unreleased",
+        entries: [
+            "Fixed constant signals being editable from the regular layer",
+            "Fixed items still overlapping sometimes between buildings and belts",
+        ],
+    },
+    {
+        version: "(17) 1.0.0",
+        date: "12.14.2020",
+        entries: [
+            "Official mod release!",
+            "Added (17) prefix to all mod changelogs",
+            "Implemented hotfix for Incorrect Redprint shape code (I swear it's fixed this time!)",
+            "Fixed error where level 26 and the corresponding end game upgrade were the vanilla desing and not the modded variant",
+            "Added new Mod tips",
+            "Removed dev mode and sandbox tools",
+            "Relevant 1.2.2 vanilla client commits implemented",
+        ],
+    },
+    {
         version: "1.2.2",
         date: "07.12.2020",
         entries: [
@@ -26,16 +32,15 @@ export const CHANGELOG = [
             "Allow to cycle variants backwards with SHIFT + T",
             "Upgrade numbers now use roman numerals until tier 50 (by LeopoldTal)",
             "Add button to unpin shapes from the left side (by artemisSystem)",
-            "Fix middle mouse button also placing redprints (by Eiim)",
+            "Fix middle mouse button also placing blueprints (by Eiim)",
             "Hide wires grid when using the 'Disable Grid' setting (by EmeraldBlock)",
             "Fix UI using multiple different save icons",
             "Updated translations (Thanks to all contributors!)",
         ],
     },
-
-     {
+    {
         version: "1.2.1",
-        date: "unreleased",
+        date: "31.10.2020",
         entries: [
             "Fixed stacking bug for level 26 which required restarting the game",
             "Fix reward notification being too long sometimes (by LeopoldTal)",
@@ -47,33 +52,33 @@ export const CHANGELOG = [
             "Updated translations and added Hungarian",
         ],
     },
-     {
-          version: "(17) 0.2.1",
-          date: "12.08.2020",
-          entries:[
-             "Updated previous and current changelog designations to the standard 'major.minor.patch' format",
-             "Fixed bug where redprint shape code wasn't universally applied therefore preventing redprints from being the shape required to blueprint",
-          ],
-     },
-     {
-       version: "(17) 0.2.0",
-       date: "12.07.2020",
-       entries:[
-          "Updated previous and current changlog designations to make it 'vanilla.vanilla.vannilla.mod version'",
-          "Implemented Level 17 themed upgrades",
-          "Removed i l l e g a l dye colors from freeplay shape color pool",
-          "Various refactoring and level tweaks",
-          "If all things go well, I will rebuild this version next week as the official launch version of JusticeForLevel17!",
-          ],
-     },
-     {
+    {
+        version: "(17) 0.2.1",
+        date: "12.08.2020",
+        entries: [
+            "Updated previous and current changelog designations to the standard 'major.minor.patch' format",
+            "Fixed bug where redprint shape code wasn't universally applied therefore preventing redprints from being the shape required to blueprint",
+        ],
+    },
+    {
+        version: "(17) 0.2.0",
+        date: "12.07.2020",
+        entries: [
+            "Updated previous and current changlog designations to make it 'vanilla.vanilla.vannilla.mod version'",
+            "Implemented Level 17 themed upgrades",
+            "Removed i l l e g a l dye colors from freeplay shape color pool",
+            "Various refactoring and level tweaks",
+            "If all things go well, I will rebuild this version next week as the official launch version of JusticeForLevel17!",
+        ],
+    },
+    {
         version: "(17) 0.1.0",
         date: "12.01.2020",
         entries: [
             "Changed splash text to Mod Name",
             "Removed wires update Level 18 and replaced with pre-wires Level 17 respectively",
             "All levels now reflect partially or wholly the design and color of level 17",
-             ],
+        ],
     },
     {
         version: "1.2.0",
