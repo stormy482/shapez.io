@@ -241,7 +241,7 @@ dialogs:
     blueprintsNotUnlocked:
         title: Not unlocked yet
         desc: >-
-            Complete level 12 to unlock Blueprints!
+            Complete level 12 to unlock Redprints!
 
     keybindingsIntroduction:
         title: Useful keybindings
@@ -297,7 +297,7 @@ ingame:
         placeBuilding: Place building
         createMarker: Create marker
         delete: Delete
-        pasteLastBlueprint: Paste last blueprint
+        pasteLastBlueprint: Paste last redprint
         lockBeltDirection: Enable belt planner
         plannerSwitchSide: Flip planner side
         cutSelection: Cut
@@ -809,10 +809,10 @@ storyRewards:
             It priorities the left output, so you can also use it as an <strong>overflow gate</strong>!
 
     reward_blueprints:
-        title: Blueprints
+        title: Redprints
         desc: >-
             You can now <strong>copy and paste</strong> parts of your factory! Select an area (Hold CTRL, then drag with your mouse), and press 'C' to copy it.<br><br>Pasting it is
-            <strong>not free</strong>, you need to produce <strong>blueprint shapes</strong> to afford it! (Those you just delivered).
+            <strong>not free</strong>, you need to produce <strong>Redprint shapes</strong> to afford it! (Those you just delivered).
 
     reward_rotater_180:
         title: Rotator (180°)
@@ -1159,7 +1159,7 @@ keybindings:
             Modifier: Rotate CCW instead
         cycleBuildingVariants: Cycle Variants
         confirmMassDelete: Delete area
-        pasteLastBlueprint: Paste last blueprint
+        pasteLastBlueprint: Paste last redprint
         cycleBuildings: Cycle Buildings
         lockBeltDirection: Enable belt planner
         switchDirectionLockSide: >-
