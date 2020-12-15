@@ -9,7 +9,6 @@ const bestShape = "WrRgWrRg:CwCrCwCr:SgSgSgSg";
 const preparementShape = /*"CpRpCp--:SwSwSwSw"*/ bestShape;
 const blueprintShape = "CrCrCrRr:CwCwCwCw";
 
-
 // Tiers need % of the previous tier as requirement too
 const tierGrowth = 2.5;
 
@@ -165,7 +164,7 @@ function generateUpgrades(limitedVersion = false) {
             ...generateInfiniteUnlocks(),
         ],
     };
-    
+
     // Automatically generate tier levels
     for (const upgradeId in upgrades) {
         const upgradeTiers = upgrades[upgradeId];
@@ -243,7 +242,6 @@ export function generateLevelDefinitions(limitedVersion = false) {
             shape: "RuRuRuRu", // miners t1
             required: 70,
             reward: enumHubGoalRewards.reward_balancer,
-           
         },
 
         // 4
@@ -251,9 +249,9 @@ export function generateLevelDefinitions(limitedVersion = false) {
             shape: "RuRu----", // processors t2
             required: 4,
             reward: enumHubGoalRewards.reward_rotater,
-             throughputOnly: true,
+            throughputOnly: true,
         },
-        
+
         //TODO: Make speed challenge after first beta
 
         // 5
@@ -327,110 +325,109 @@ export function generateLevelDefinitions(limitedVersion = false) {
         },
 
         // DEMO STOPS HERE-LOL not on my watch
-        
-                  // 14
-                  // Belt reader
-                  {
-                      shape: "Cg--CgCg:Cr--CrCr", // unused
-                      required: 8, // Per second!
-                      reward: enumHubGoalRewards.reward_belt_reader,
-                      throughputOnly: true,
-                  },
 
-                  // 15
-                  // Storage
-                  {
-                      shape: "SgSgSgSg:CwCrCwCr", // unused
-                      required: 10000,
-                      reward: enumHubGoalRewards.reward_storage,
-                  },
+        // 14
+        // Belt reader
+        {
+            shape: "Cg--CgCg:Cr--CrCr", // unused
+            required: 8, // Per second!
+            reward: enumHubGoalRewards.reward_belt_reader,
+            throughputOnly: true,
+        },
 
-                  // 16
-                  // Quad Cutter
-                  {
-                      shape: "SgSgSgSg:CwCrCwCr:SgSgSgSg", // belts t4 (two variants)
-                      required: 6000,
-                      reward: enumHubGoalRewards.reward_cutter_quad,
-                  },
+        // 15
+        // Storage
+        {
+            shape: "SgSgSgSg:CwCrCwCr", // unused
+            required: 10000,
+            reward: enumHubGoalRewards.reward_storage,
+        },
 
-                  // 17 BEST SHAPE IN GAME, WOULD RECOMMEND, 11/10 -IGN, probably
-                  // Double painter
-                  {
-                      shape: bestShape, // miner t4 (two variants)
-                      required: 20000,
-                      reward: enumHubGoalRewards.reward_painter_double,
-                  },
+        // 16
+        // Quad Cutter
+        {
+            shape: "SgSgSgSg:CwCrCwCr:SgSgSgSg", // belts t4 (two variants)
+            required: 6000,
+            reward: enumHubGoalRewards.reward_cutter_quad,
+        },
 
-                  // 18
-                  // Rotater (180deg)
-                  {
-                      shape: "CrRgRrCg:CwCrCwCr:WgWgWgWg",
-                      required: 20000,
-                      reward: enumHubGoalRewards.reward_rotater_180,
-                  },
+        // 17 BEST SHAPE IN GAME, WOULD RECOMMEND, 11/10 -IGN, probably
+        // Double painter
+        {
+            shape: bestShape, // miner t4 (two variants)
+            required: 20000,
+            reward: enumHubGoalRewards.reward_painter_double,
+        },
 
-                  // 19
-                  // Compact splitter
-                  {
-                      shape: "RwCr--Cr:Cg--Cg--",
-                      required: 25000,
-                      reward: enumHubGoalRewards.reward_splitter,
-                  },
+        // 18
+        // Rotater (180deg)
+        {
+            shape: "CrRgRrCg:CwCrCwCr:WgWgWgWg",
+            required: 20000,
+            reward: enumHubGoalRewards.reward_rotater_180,
+        },
 
-                  // 20
-                  // WIRES
-                  {
-                      shape: finalGameShape,
-                      required: 25000,
-                      reward: enumHubGoalRewards.reward_wires_painter_and_levers,
-                  },
+        // 19
+        // Compact splitter
+        {
+            shape: "RwCr--Cr:Cg--Cg--",
+            required: 25000,
+            reward: enumHubGoalRewards.reward_splitter,
+        },
 
-                  // 21
-                  // Filter
-                  {
-                      shape: "CrCgCrCg:CwCrCwCr:SgSgSgSg:CwCrCwCr",
-                      required: 25000,
-                      reward: enumHubGoalRewards.reward_filter,
-                  },
+        // 20
+        // WIRES
+        {
+            shape: finalGameShape,
+            required: 25000,
+            reward: enumHubGoalRewards.reward_wires_painter_and_levers,
+        },
 
-                  // 22
-                  // Constant signal
-                  {
-                      shape: "Cr----Cg:Cw----Cw:Sg------:Cg------",
-                      required: 8,
-                      reward: enumHubGoalRewards.reward_constant_signal,
-                      throughputOnly: true,                 
-                  },
+        // 21
+        // Filter
+        {
+            shape: "CrCgCrCg:CwCrCwCr:SgSgSgSg:CwCrCwCr",
+            required: 25000,
+            reward: enumHubGoalRewards.reward_filter,
+        },
 
-                  // 23
-                  // Display
-                  {
-                      shape: "CrSgCrSg:SwCrSwCr:CgSgCgSg:CwCrCwCr",
-                      required: 25000,
-                      reward: enumHubGoalRewards.reward_display,
-                  },
+        // 22
+        // Constant signal
+        {
+            shape: "Cr----Cg:Cw----Cw:Sg------:Cg------",
+            required: 8,
+            reward: enumHubGoalRewards.reward_constant_signal,
+            throughputOnly: true,
+        },
 
-                  // 24 Logic gates
-                  {
-                      shape: "CrRgCrRg:CwCrCwCr:Sg--Sg--:--Cg--Cg",
-                      required: 25000,
-                      reward: enumHubGoalRewards.reward_logic_gates,
-                  },
+        // 23
+        // Display
+        {
+            shape: "CrSgCrSg:SwCrSwCr:CgSgCgSg:CwCrCwCr",
+            required: 25000,
+            reward: enumHubGoalRewards.reward_display,
+        },
 
-                  // 25 Virtual Processing
-                  {
-                      shape: "Rr--Rr--:--Rg--Rg:Rw--Rw--",
-                      required: 25000,
-                      reward: enumHubGoalRewards.reward_virtual_processing,
-                  },
+        // 24 Logic gates
+        {
+            shape: "CrRgCrRg:CwCrCwCr:Sg--Sg--:--Cg--Cg",
+            required: 25000,
+            reward: enumHubGoalRewards.reward_logic_gates,
+        },
 
-                  // 26 Freeplay
-                  {
-                      shape: "Sr------:--CgSrCg:CwCrCwCr:SgSgSgSg",
-                      required: 50000,
-                      reward: enumHubGoalRewards.reward_freeplay,
-                  },
-              
+        // 25 Virtual Processing
+        {
+            shape: "Rr--Rr--:--Rg--Rg:Rw--Rw--",
+            required: 25000,
+            reward: enumHubGoalRewards.reward_virtual_processing,
+        },
+
+        // 26 Freeplay
+        {
+            shape: "Sr------:--CgSrCg:CwCrCwCr:SgSgSgSg",
+            required: 50000,
+            reward: enumHubGoalRewards.reward_freeplay,
+        },
     ];
 
     if (G_IS_DEV) {
