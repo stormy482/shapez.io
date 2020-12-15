@@ -1188,7 +1188,7 @@ about:
 
         Finally, huge thanks to Tobias' best friend <a href="https://github.com/niklas-dahl" target="_blank">Niklas</a> - Without their Factorio sessions, this game would never have existed.<br><br>
         
-        JusticeForLevel17 Mod Contributers:<br><br>
+        <b>JusticeForLevel17 Mod Contributers:</b><br><br>
         
         This Mod was the brainchild and created primarily by Level 17's biggest fan, <a href="https://github.com/SargeanTravis" target="_blank"> SargeanTravis</a><br><br>
         
@@ -1218,16 +1218,17 @@ tips:
     - You can toggle the belt planner direction by pressing <b>R</b>.
     - Holding <b>CTRL</b> allows dragging of belts without auto-orientation.
     - Ratios stay the same, as long as all upgrades are on the same Tier.
-    - Serial execution is more efficient than parallel.
+    - Is it still called blueprinting when the shape isn't blue? That's up for your own interpretation. 
     - You will unlock more variants of buildings later in the game!
     - You can use <b>T</b> to switch between different variants.
     - Symmetry is key!
+    - Radial Symmetry is key!
     - You can weave different tiers of tunnels.
     - Try to build compact factories - it will pay out!
     - The painter has a mirrored variant which you can select with <b>T</b>
     - Having the right building ratios will maximize efficiency.
     - At maximum level, 5 extractors will fill a single belt.
-    - Remember this shape code - WrRgWrRg/CwCrCwCr/SgSgSgSg, you'll thank me later
+    - Remember this shape code - WrRgWrRgCwCrCwCrSgSgSgSg, you'll thank me later 
     - You don't need to divide up items evenly for full efficiency.
     - Holding <b>SHIFT</b> will activate the belt planner, letting you place long lines of belts easily.
     - Cutters always cut vertically, regardless of their orientation.
@@ -1247,7 +1248,7 @@ tips:
     - You may need to reuse factories later in the game. Build your factories to be reusable.
     - Sometimes, you can find a needed shape in the map without creating it with stackers.
     - Full windmills/pinwheels can never spawn naturally.
-    - Color your shapes before cutting for maximum efficiency.
+    - Color your shapes before cutting for maximum efficiency. 
     - With modules, space is merely a perception; a concern for mortal men.
     - Make a separate redprint factory. They're important for modules.
     - Have a closer look at the color mixer, and your questions will be answered.
@@ -1266,3 +1267,6 @@ tips:
     - Press F4 to show your FPS and Tick Rate.
     - Press F4 twice to show the tile of your mouse and camera.
     - You can click a pinned shape on the left side to unpin it.
+    - Play this during the holiday season, Level 17 naturally fits in!
+    - Barring level 9, you will not find any blue, yellow, cyan, or magenta dye as required colors!
+    - If you're up to it, you should try out modding shapez.io too, it's quite fun when it works out just right!
