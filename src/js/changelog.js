@@ -9,15 +9,15 @@ export const CHANGELOG = [
     },
     {
         version: "(17) 1.0.0",
-        date: "12.17.2020",
+        date: "12.16.2020",
         entries: [
             "Official mod release!",
             "Added (17) prefix to all mod changelogs",
             "Implemented hotfix for Incorrect Redprint shape code (I swear it's fixed this time!)",
             "Fixed error where level 26 and the corresponding end game upgrade were the vanilla design and not the modded variant",
-            "Added new Mod tips, and named contribuors in appropriate section",
+            "Added new Mod tips, Blueprints are now referred to as 'Redprints' whenever applicable, and recorded names of contribuors in appropriate section",
             "Removed dev mode and sandbox tools",
-            "Relevant 1.2.2 vanilla client commits implemented",
+            "Relevant 1.2.3 vanilla client commits implemented",
         ],
     },
     {
