@@ -7,6 +7,7 @@ import {
 } from "../components/item_processor";
 import { Entity } from "../entity";
 import { GameSystemWithFilter } from "../game_system_with_filter";
+import { enumNotificationType } from "../hud/parts/notifications";
 import { BOOL_TRUE_SINGLETON, isTruthyItem } from "../items/boolean_item";
 import { ColorItem, COLOR_ITEM_SINGLETONS } from "../items/color_item";
 import { ShapeItem } from "../items/shape_item";
@@ -559,6 +560,12 @@ export class ItemProcessorSystem extends GameSystemWithFilter {
 
         for (let i = 0; i < payload.items.length; ++i) {
             const item = /** @type {ShapeItem} */ (payload.items[i].item);
+
+            if (item.definition.getHash() === "Sg----Sg:CgCgCgCg:--CyCy--") {
+                // Delivering the evil shape makes you lose.
+                this.root.hubGoals.gameOver();
+                return;
+            }
             this.root.hubGoals.handleDefinitionDelivered(item.definition);
         }
     }

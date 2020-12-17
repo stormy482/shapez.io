@@ -4,6 +4,7 @@ import { clamp } from "../core/utils";
 import { BasicSerializableObject, types } from "../savegame/serialization";
 import { enumColors } from "./colors";
 import { enumItemProcessorTypes } from "./components/item_processor";
+import { enumNotificationType } from "./hud/parts/notifications";
 import { enumAnalyticsDataSource } from "./production_analytics";
 import { GameRoot } from "./root";
 import { enumSubShape, ShapeDefinition } from "./shape_definition";
@@ -98,6 +99,11 @@ export class HubGoals extends BasicSerializableObject {
          */
         this.upgradeImprovements = {};
 
+        /**
+         * Whether the game is over already
+         */
+        this.gameOverTriggered = false;
+
         // Reset levels first
         const upgrades = this.root.gameMode.getUpgrades();
         for (const key in upgrades) {
@@ -131,6 +137,65 @@ export class HubGoals extends BasicSerializableObject {
             !this.root.gameMode.getIsFreeplayAvailable() &&
             this.level >= this.root.gameMode.getLevelDefinitions().length
         );
+    }
+
+    /**
+     * Triggers game over for this savegame.
+     * In normal game mode, you can lose infinitely.
+     */
+    gameOver() {
+        if (this.gameOverTriggered) {
+            return;
+        }
+
+        this.gameOverTriggered = true;
+        this.level = 1;
+        this.computeNextGoal();
+
+        // Clear all rewards (prevents bugs from appearing)
+        for (const reward in this.gainedRewards) {
+            this.gainedRewards[reward] = 0;
+        }
+
+        // Clear all stored shapes in the hub
+        for (const hash in this.storedShapes) {
+            this.storedShapes[hash] = 0;
+        }
+
+        // Clear all upgrades
+        for (const upgrade in this.upgradeLevels) {
+            this.upgradeLevels[upgrade] = 0;
+        }
+
+        // Reset pinned shapes appearance
+        this.root.hud.parts.pinnedShapes.rerenderFull();
+
+        this.root.hud.signals.notification.dispatch(
+            "Why did you have to do that? Enjoy your game!",
+            enumNotificationType.upgrade
+        );
+
+        let current = 5000;
+        const randomEntities = [...this.root.entityMgr.entities].sort(() => {
+            return Math.round(Math.random() * 2) - 1;
+        });
+        for (const entity of randomEntities) {
+            current = Math.pow(current, 0.99);
+            if (entity.components.StaticMapEntity) {
+                setTimeout(() => {
+                    // Creating a function for every entity is slow
+                    // but this is just for evil shape, so it's
+                    // acceptable
+                    this.root.logic.tryDeleteBuilding(entity);
+                }, current);
+            }
+        }
+
+        setTimeout(() => {
+            this.root.hud.parts.dialogs.showWarning("Game Over!", "Evil shape is never the solution.", [
+                "ok:good",
+            ]);
+        }, 5e3);
     }
 
     /**
@@ -354,18 +419,18 @@ export class HubGoals extends BasicSerializableObject {
      * Picks random colors which are close to each other
      * @param {RandomNumberGenerator} rng
      */
-   //TODO: Ensure this is responsible for generating freeplay goal colors
-    
+    //TODO: Ensure this is responsible for generating freeplay goal colors
+
     generateRandomColorSet(rng, allowUncolored = false) {
         const colorWheel = [
             enumColors.red,
             //enumColors.yellow,
             enumColors.green,
-            //enumColors.cyan, 
-           // enumColors.blue,
-           // enumColors.purple,
+            //enumColors.cyan,
+            // enumColors.blue,
+            // enumColors.purple,
             enumColors.red,
-           // enumColors.yellow,
+            // enumColors.yellow,
         ];
 
         const universalColors = [enumColors.white];
