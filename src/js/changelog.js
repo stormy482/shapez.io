@@ -1,8 +1,9 @@
 export const CHANGELOG = [
     {
         version: "0.0.2 (H2O)",
-        date: "01.20.2021",
+        date: "01.23-24.2021",
         entries: [
+            "Brand-spanking new lake generation using perlin noise algorithm (big thanks to Discord Member storm!)
             "Fixed missing methods that prevented wires layer from being unrestricted to lake spawns",
             "Fixed a typo in previous changelog",
         ],
