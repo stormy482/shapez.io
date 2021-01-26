@@ -119,7 +119,7 @@ export class MapChunk {
 
                 const val = valOnPoint(x, y);
 
-                const waterLevel = -0.2;
+                const waterLevel = -0.18;
 
                 if (distance > distanceLimit * globalConfig.mapChunkSize) {
                     if (val < 0.4) {
