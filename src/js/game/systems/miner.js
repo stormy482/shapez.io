@@ -52,9 +52,11 @@ export class MinerSystem extends GameSystemWithFilter {
                     staticComp.origin.x,
                     staticComp.origin.y
                 );
-                if (!tileBelow) {
+
+                if (!tileBelow || !(tileBelow instanceof BaseItem)) {
                     continue;
                 }
+
                 minerComp.cachedMinedItem = tileBelow;
             }
 

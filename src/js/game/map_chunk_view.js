@@ -6,6 +6,7 @@ import { MapChunk } from "./map_chunk";
 import { GameRoot } from "./root";
 import { THEME } from "./theme";
 import { drawSpriteClipped } from "../core/draw_utils";
+import { BaseItem } from "./base_item";
 
 export const CHUNK_OVERLAY_RES = 3;
 
@@ -161,9 +162,20 @@ export class MapChunkView extends MapChunk {
 
                     if (overlayMatrix) {
                         // Draw lower content first since it "shines" through
-                        const lowerContent = lowerArray[y];
+                        let lowerContent = lowerArray[y];
                         if (lowerContent) {
-                            context.fillStyle = lowerContent.getBackgroundColorAsResource();
+                            if (!(lowerContent instanceof BaseItem)) {
+                                const fakeItem = lowerContent.item;
+                                if (fakeItem instanceof BaseItem) {
+                                    lowerContent = fakeItem;
+                                }
+                            }
+
+                            if (lowerContent instanceof BaseItem) {
+                                context.fillStyle = lowerContent.getBackgroundColorAsResource();
+                            } else if (typeof lowerContent === "object") {
+                                context.fillStyle = lowerContent.color;
+                            }
                             context.fillRect(
                                 x * CHUNK_OVERLAY_RES,
                                 y * CHUNK_OVERLAY_RES,
@@ -207,9 +219,23 @@ export class MapChunkView extends MapChunk {
                     }
                 }
 
-                const lowerContent = lowerArray[y];
+                let lowerContent = lowerArray[y];
                 if (lowerContent) {
-                    context.fillStyle = lowerContent.getBackgroundColorAsResource();
+                    // if (!(lowerContent instanceof BaseItem)) {
+                    //     const fakeItem = lowerContent.item;
+                    //     if (fakeItem instanceof BaseItem) {
+                    //         lowerContent = fakeItem;
+                    //     }
+                    // }
+
+                    if (lowerContent instanceof BaseItem) {
+                        context.fillStyle = lowerContent.getBackgroundColorAsResource();
+                    } else if (typeof lowerContent === "object") {
+                        context.fillStyle = lowerContent.color;
+                    } else if (typeof lowerContent === "string") {
+                        context.fillStyle = lowerContent;
+                    }
+
                     context.fillRect(
                         x * CHUNK_OVERLAY_RES,
                         y * CHUNK_OVERLAY_RES,

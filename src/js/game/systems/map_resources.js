@@ -5,6 +5,7 @@ import { MapChunkView } from "../map_chunk_view";
 import { THEME } from "../theme";
 import { drawSpriteClipped } from "../../core/draw_utils";
 import { FluidItem } from "../items/fluid_item";
+import { BaseItem } from "../base_item";
 
 export class MapResourcesSystem extends GameSystem {
     /**
@@ -56,7 +57,7 @@ export class MapResourcesSystem extends GameSystem {
                 const rowEntities = layerEntities[x];
                 const worldX = (chunk.tileX + x) * globalConfig.tileSize;
                 for (let y = 0; y < globalConfig.mapChunkSize; ++y) {
-                    const lowerItem = row[y];
+                    let lowerItem = row[y];
 
                     const entity = rowEntities[y];
                     if (entity) {
@@ -65,6 +66,15 @@ export class MapResourcesSystem extends GameSystem {
                     }
 
                     if (lowerItem) {
+                        if (!(lowerItem instanceof BaseItem)) {
+                            const fakeItem = lowerItem.item;
+                            if (fakeItem instanceof BaseItem) {
+                                lowerItem = fakeItem;
+                            } else {
+                                continue;
+                            }
+                        }
+
                         if (lowerItem.getItemType() === "fluid") {
                             let drawnPatches = [];
                             for (let i = 0; i < chunk.patches.length; ++i) {
@@ -130,9 +140,23 @@ export class MapResourcesSystem extends GameSystem {
         for (let x = 0; x < globalConfig.mapChunkSize; ++x) {
             const row = layer[x];
             for (let y = 0; y < globalConfig.mapChunkSize; ++y) {
-                const item = row[y];
+                let item = row[y];
+
                 if (item) {
-                    context.fillStyle = item.getBackgroundColorAsResource();
+                    // if (!(item instanceof BaseItem)) {
+                    //     const fakeItem = item.item;
+                    //     if (fakeItem instanceof BaseItem) {
+                    //         item = fakeItem;
+                    //     }
+                    // }
+
+                    if (item instanceof BaseItem) {
+                        context.fillStyle = item.getBackgroundColorAsResource();
+                    } else if (typeof item === "object") {
+                        context.fillStyle = item.color;
+                    } else if (typeof item === "string") {
+                        context.fillStyle = item;
+                    }
                     context.fillRect(x, y, 1, 1);
                 }
             }

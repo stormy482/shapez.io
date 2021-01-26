@@ -3,6 +3,7 @@ import { createLogger } from "../core/logging";
 import { STOP_PROPAGATION } from "../core/signal";
 import { round2Digits } from "../core/utils";
 import { enumDirection, enumDirectionToVector, enumInvertedDirections, Vector } from "../core/vector";
+import { BaseItem } from "./base_item";
 import { getBuildingDataFromCode } from "./building_codes";
 import { enumWireVariant } from "./components/wire";
 import { Entity } from "./entity";
@@ -78,8 +79,21 @@ export class GameLogic {
                 }
 
                 // Check if there is any fluid underneath it
-                const tile = this.root.map.getLowerLayerContentXY(x, y);
-                if (tile && tile.getItemType() === "fluid") {
+                let tile = this.root.map.getLowerLayerContentXY(x, y);
+                if (!tile) {
+                    continue;
+                }
+
+                if (!(tile instanceof BaseItem)) {
+                    const fakeItem = tile.item;
+                    if (fakeItem instanceof BaseItem) {
+                        tile = fakeItem;
+                    } else {
+                        continue;
+                    }
+                }
+
+                if (tile.getItemType() === "fluid") {
                     const metaClass = entity.components.StaticMapEntity.getMetaBuilding();
 
                     if (!metaClass.placeableToFluids(tile.getAsCopyableKey())) {

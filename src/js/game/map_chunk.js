@@ -1,7 +1,7 @@
 import { globalConfig } from "../core/config";
 import { createLogger } from "../core/logging";
 import { RandomNumberGenerator } from "../core/rng";
-import { clamp, fastArrayDeleteValueIfContained, make2DUndefinedArray } from "../core/utils";
+import { clamp, fastArrayDeleteValueIfContained, lerp, make2DUndefinedArray } from "../core/utils";
 import { Vector } from "../core/vector";
 import { BaseItem } from "./base_item";
 import { enumColors } from "./colors";
@@ -12,6 +12,7 @@ import { enumSubShape } from "./shape_definition";
 import { Rectangle } from "../core/rectangle";
 import { FLUID_ITEM_SINGLETONS } from "./items/fluid_item";
 import { enumFluids } from "./items/fluid_item";
+import { CoherentNoise } from "../core/coherentNoise";
 
 const logger = createLogger("map_chunk");
 
@@ -31,7 +32,7 @@ export class MapChunk {
 
         /**
          * Stores the contents of the lower (= map resources) layer
-         *  @type {Array<Array<?BaseItem>>}
+         *  @type {Array<Array<any>>}
          */
         this.lowerLayer = make2DUndefinedArray(globalConfig.mapChunkSize, globalConfig.mapChunkSize);
 
@@ -87,6 +88,118 @@ export class MapChunk {
 
         this.generateLowerLayer();
     }
+    /**
+     *
+     * @param {number} distanceLimit
+     * @param {number} threashold
+     * @param {number} scale
+     * @param {BaseItem} item
+     */
+    internalGenerateOcean(distanceLimit, threashold, scale, item) {
+        const noise = new CoherentNoise(this.root.map.seed);
+
+        const avgPos = new Vector(0, 0);
+        let patchesDrawn = 0;
+
+        for (let offX = 0; offX < globalConfig.mapChunkSize; ++offX) {
+            for (let offY = 0; offY < globalConfig.mapChunkSize; ++offY) {
+                const x = this.tileX + offX;
+                const y = this.tileY + offY;
+
+                const distance = new Vector(x, y).length();
+
+                const valOnPoint = (x, y) => {
+                    return (
+                        noise.computePerlin2(x * 0.01, y * 0.01) * 0.4 +
+                        noise.computePerlin2(x * 0.02, y * 0.02) * 0.3 +
+                        noise.computePerlin2(x * 0.04, y * 0.04) * 0.2 +
+                        noise.computePerlin2(x * 0.08, y * 0.08) * 0.1
+                    );
+                };
+
+                const val = valOnPoint(x, y);
+
+                const waterLevel = -0.2;
+
+                if (distance > distanceLimit * globalConfig.mapChunkSize) {
+                    if (val < 0.4) {
+                        if (val < waterLevel) {
+                            ++patchesDrawn;
+                            avgPos.x += offX;
+                            avgPos.y += offY;
+                            this.lowerLayer[offX][offY] = { item, color: noise.getColor(val) }; // noise.getColor(val), val };
+                        } else {
+                            this.lowerLayer[offX][offY] = { color: noise.getColor(val), val };
+                        }
+                    } else {
+                        this.lowerLayer[offX][offY] = { color: noise.getColor(0.4) };
+                    }
+                } else {
+                    const map = function (n, start1, stop1, start2, stop2) {
+                        return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+                    };
+
+                    if (val < 0.4) {
+                        const color = noise.getColor(
+                            map(distance, distanceLimit * globalConfig.mapChunkSize, 0, val, 0.2)
+                        );
+
+                        if (val < waterLevel) {
+                            ++patchesDrawn;
+                            avgPos.x += x;
+                            avgPos.y += y;
+                            this.lowerLayer[offX][offY] = { item, color };
+                        } else {
+                            this.lowerLayer[offX][offY] = { color };
+                        }
+                    } else {
+                        const color = noise.getColor(
+                            map(distance, distanceLimit * globalConfig.mapChunkSize, 0, 0.4, 0.2)
+                        );
+
+                        this.lowerLayer[offX][offY] = { color };
+                    }
+                }
+            }
+        }
+
+        // this.patches = [
+        //     {
+        //         pos: avgPos.divideScalar(patchesDrawn),
+        //         item,
+        //         size: 5,
+        //     },
+        // ];
+    }
+    /**
+     *
+     * @param {RandomNumberGenerator} rng
+     * @param {number} distanceToOriginInChunks
+     */
+
+    internalGenerateLiquidOcean(rng, distanceToOriginInChunks) {
+        //noise gen values
+        const availableFluids = [];
+        const threashold = 0.75;
+        const scale = 0.01;
+
+        const distanceLimit = 10;
+
+        if (distanceToOriginInChunks > -1) {
+            for (const fluid in enumFluids) {
+                availableFluids.push(fluid);
+            }
+        }
+
+        if (availableFluids.length > 0) {
+            return this.internalGenerateOcean(
+                distanceLimit,
+                threashold,
+                scale,
+                FLUID_ITEM_SINGLETONS[rng.choice(availableFluids)]
+            );
+        }
+    }
 
     /**
      * Generates a patch filled with the given item
@@ -138,7 +251,7 @@ export class MapChunk {
                         const originalDx = dx / circleScaleX;
                         const originalDy = dy / circleScaleY;
                         if (originalDx * originalDx + originalDy * originalDy <= circleRadiusSquare) {
-                            if (!this.lowerLayer[x][y]) {
+                            if (!this.lowerLayer[x][y].item) {
                                 this.lowerLayer[x][y] = item;
                                 ++patchesDrawn;
                                 avgPos.x += x;
@@ -172,24 +285,6 @@ export class MapChunk {
             availableColors.push(enumColors.blue);
         }
         this.internalGeneratePatch(rng, colorPatchSize, COLOR_ITEM_SINGLETONS[rng.choice(availableColors)]);
-    }
-
-    internalGenerateFluidPatch(rng, fluidPatchSize, distanceToOriginInChunks) {
-        // First, determine available fluids
-        let availableFluids = [];
-        if (distanceToOriginInChunks > 10) {
-            for (const fluid in enumFluids) {
-                availableFluids.push(fluid);
-            }
-        }
-
-        if (availableFluids.length > 0) {
-            this.internalGeneratePatch(
-                rng,
-                fluidPatchSize,
-                FLUID_ITEM_SINGLETONS[rng.choice(availableFluids)]
-            );
-        }
     }
 
     /**
@@ -287,12 +382,14 @@ export class MapChunk {
     generateLowerLayer() {
         const rng = new RandomNumberGenerator(this.x + "|" + this.y + "|" + this.root.map.seed);
 
-        if (this.generatePredefined(rng)) {
-            return;
-        }
-
         const chunkCenter = new Vector(this.x, this.y).addScalar(0.5);
         const distanceToOriginInChunks = Math.round(chunkCenter.length());
+
+        this.internalGenerateLiquidOcean(rng, distanceToOriginInChunks);
+
+        if (this.generatePredefined(rng)) {
+            // return;
+        }
 
         // Determine how likely it is that there is a color patch
         const colorPatchChance = 0.9 - clamp(distanceToOriginInChunks / 25, 0, 1) * 0.5;
@@ -300,14 +397,6 @@ export class MapChunk {
         if (rng.next() < colorPatchChance / 4) {
             const colorPatchSize = Math.max(2, Math.round(1 + clamp(distanceToOriginInChunks / 8, 0, 4)));
             this.internalGenerateColorPatch(rng, colorPatchSize, distanceToOriginInChunks);
-        }
-
-        // Determine how likely it is that there is a fluid patch
-        const fluidPatchChance = 0.9 - clamp(distanceToOriginInChunks / 25, 0, 1) * 0.5;
-
-        if (rng.next() < fluidPatchChance / 4) {
-            const fluidPatchSize = Math.max(2, Math.round(1 + clamp(distanceToOriginInChunks / 8, 0, 4)));
-            this.internalGenerateFluidPatch(rng, fluidPatchSize, distanceToOriginInChunks);
         }
 
         // Determine how likely it is that there is a shape patch
@@ -358,7 +447,6 @@ export class MapChunk {
      *
      * @param {number} worldX
      * @param {number} worldY
-     * @returns {BaseItem=}
      */
     getLowerLayerFromWorldCoords(worldX, worldY) {
         const localX = worldX - this.tileX;
@@ -406,6 +494,7 @@ export class MapChunk {
             return this.wireContents[localX][localY] || null;
         }
     }
+
     /**
      * Returns the contents of this chunk from the given world space coordinates
      * @param {number} worldX

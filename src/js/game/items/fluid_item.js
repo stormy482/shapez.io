@@ -53,10 +53,6 @@ export class FluidItem extends BaseItem {
         return this.fluid === /** @type {FluidItem} */ (other).fluid;
     }
 
-    getBackgroundColorAsResource() {
-        return enumFluidsToHex[this.fluid];
-    }
-
     // /**
     //  * Draws the item to a canvas
     //  * @param {CanvasRenderingContext2D} context

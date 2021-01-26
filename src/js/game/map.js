@@ -109,7 +109,6 @@ export class BaseMap extends BasicSerializableObject {
      * Returns the lower layers content of the given tile
      * @param {number} x
      * @param {number} y
-     * @returns {BaseItem=}
      */
     getLowerLayerContentXY(x, y) {
         return this.getOrCreateChunkAtTile(x, y).getLowerLayerFromWorldCoords(x, y);
