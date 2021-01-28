@@ -12,8 +12,8 @@ import { enumSubShape } from "./shape_definition";
 import { Rectangle } from "../core/rectangle";
 import { FLUID_ITEM_SINGLETONS } from "./items/fluid_item";
 import { enumFluids } from "./items/fluid_item";
-import { CoherentNoise } from "../core/coherentNoise";
-import { FastNoise } from "../core/FastNoise";
+import { CoherentNoise } from "../core/noise/coherentNoise";
+import { FastNoise } from "../core/noise/FastNoise";
 
 const logger = createLogger("map_chunk");
 

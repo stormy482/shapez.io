@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 class Grad {
     constructor(x, y, z) {
         this.x = x;
@@ -52,7 +55,9 @@ const G2 = (3 - Math.sqrt(3)) / 6;
 
 const F3 = 1 / 3;
 const G3 = 1 / 6;
-
+/**
+ * @deprecated
+ */
 export class CoherentNoise {
     /**
      * //create object
