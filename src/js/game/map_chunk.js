@@ -37,6 +37,13 @@ export class MapChunk {
         this.lowerLayer = make2DUndefinedArray(globalConfig.mapChunkSize, globalConfig.mapChunkSize);
 
         /**
+         * @type {Array<Array<boolean>>}
+         */
+        this.isLiquid = make2DUndefinedArray(globalConfig.mapChunkSize, globalConfig.mapChunkSize);
+
+
+
+        /**
          * Stores the contents of the regular layer
          * @type {Array<Array<?Entity>>}
          */
@@ -103,6 +110,7 @@ export class MapChunk {
 
         for (let offX = 0; offX < globalConfig.mapChunkSize; ++offX) {
             for (let offY = 0; offY < globalConfig.mapChunkSize; ++offY) {
+                this.isLiquid[offX][offY] = false;
                 const x = this.tileX + offX;
                 const y = this.tileY + offY;
 
@@ -127,6 +135,7 @@ export class MapChunk {
                             ++patchesDrawn;
                             avgPos.x += offX;
                             avgPos.y += offY;
+                            this.isLiquid[offX][offY] = true;
                             this.lowerLayer[offX][offY] = { item, color: noise.getColor(val) }; // noise.getColor(val), val };
                         } else {
                             this.lowerLayer[offX][offY] = { color: noise.getColor(val), val };
@@ -148,6 +157,7 @@ export class MapChunk {
                             ++patchesDrawn;
                             avgPos.x += x;
                             avgPos.y += y;
+                            this.isLiquid[offX][offY] = true;
                             this.lowerLayer[offX][offY] = { item, color };
                         } else {
                             this.lowerLayer[offX][offY] = { color };
@@ -252,10 +262,13 @@ export class MapChunk {
                         const originalDy = dy / circleScaleY;
                         if (originalDx * originalDx + originalDy * originalDy <= circleRadiusSquare) {
                             if (!this.lowerLayer[x][y].item) {
-                                this.lowerLayer[x][y] = item;
-                                ++patchesDrawn;
-                                avgPos.x += x;
-                                avgPos.y += y;
+                                //checks if the patch will overlap with the lakes
+                                if (this.isLiquid[x][y] == false){
+                                    this.lowerLayer[x][y] = item;
+                                    ++patchesDrawn;
+                                    avgPos.x += x;
+                                    avgPos.y += y;
+                                }
                             }
                         }
                     } else {
