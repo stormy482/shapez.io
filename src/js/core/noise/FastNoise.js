@@ -1,4 +1,3 @@
-
 /* eslint-disable no-case-declarations */
 export class FastNoise {
     /**
@@ -2097,8 +2096,6 @@ export class FastNoise {
         this._PrimeZ = 1720413743;
     }
 
-
-
     SetSeed(seed) {
         this._Seed = seed;
     }
@@ -2164,6 +2161,15 @@ export class FastNoise {
     SetDomainWarpAmp(domainWarpAmp) {
         this._DomainWarpAmp = domainWarpAmp;
     }
+
+    /**
+     *
+     * @param {number}x
+     * @param {number}y
+     * @param {number}[z]
+     * @returns {number} {}
+     * @constructor
+     */
 
     GetNoise(x, y, z) {
         let R2 = (x, y) => {
@@ -3840,10 +3846,26 @@ export class FastNoise {
             let y1 = y0 + this._PrimeY;
             let z1 = z0 + this._PrimeZ;
 
-            let xf00 = FastNoise._Lerp(this._ValCoord(seed, x0, y0, z0), this._ValCoord(seed, x1, y0, z0), xs);
-            let xf10 = FastNoise._Lerp(this._ValCoord(seed, x0, y1, z0), this._ValCoord(seed, x1, y1, z0), xs);
-            let xf01 = FastNoise._Lerp(this._ValCoord(seed, x0, y0, z1), this._ValCoord(seed, x1, y0, z1), xs);
-            let xf11 = FastNoise._Lerp(this._ValCoord(seed, x0, y1, z1), this._ValCoord(seed, x1, y1, z1), xs);
+            let xf00 = FastNoise._Lerp(
+                this._ValCoord(seed, x0, y0, z0),
+                this._ValCoord(seed, x1, y0, z0),
+                xs
+            );
+            let xf10 = FastNoise._Lerp(
+                this._ValCoord(seed, x0, y1, z0),
+                this._ValCoord(seed, x1, y1, z0),
+                xs
+            );
+            let xf01 = FastNoise._Lerp(
+                this._ValCoord(seed, x0, y0, z1),
+                this._ValCoord(seed, x1, y0, z1),
+                xs
+            );
+            let xf11 = FastNoise._Lerp(
+                this._ValCoord(seed, x0, y1, z1),
+                this._ValCoord(seed, x1, y1, z1),
+                xs
+            );
 
             let yf0 = FastNoise._Lerp(xf00, xf10, ys);
             let yf1 = FastNoise._Lerp(xf01, xf11, ys);
