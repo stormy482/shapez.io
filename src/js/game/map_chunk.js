@@ -41,8 +41,6 @@ export class MapChunk {
          */
         this.isLiquid = make2DUndefinedArray(globalConfig.mapChunkSize, globalConfig.mapChunkSize);
 
-
-
         /**
          * Stores the contents of the regular layer
          * @type {Array<Array<?Entity>>}
