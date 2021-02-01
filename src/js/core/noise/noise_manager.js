@@ -18,4 +18,11 @@ class NoiseManager {
 
 }
 
+var filter = [];
+var s;
+for (var i = 0; i <students.length; i++){
+    s = students[i];
+    if(students.length > 5){
 
+    }
+}

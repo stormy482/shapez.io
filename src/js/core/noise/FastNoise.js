@@ -2096,6 +2096,7 @@ export class FastNoise {
         this._PrimeZ = 1720413743;
     }
 
+
     SetSeed(seed) {
         this._Seed = seed;
     }
