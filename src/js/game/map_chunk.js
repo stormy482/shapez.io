@@ -261,7 +261,7 @@ export class MapChunk {
                         if (originalDx * originalDx + originalDy * originalDy <= circleRadiusSquare) {
                             if (!this.lowerLayer[x][y].item) {
                                 //checks if the patch will overlap with the lakes
-                                if (this.isLiquid[x][y] == false){
+                                if (this.isLiquid[x][y] == false) {
                                     this.lowerLayer[x][y] = item;
                                     ++patchesDrawn;
                                     avgPos.x += x;
